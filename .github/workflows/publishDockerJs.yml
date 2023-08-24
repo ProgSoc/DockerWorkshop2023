@@ -25,8 +25,8 @@ jobs:
           # generate Docker tags based on the following events/attributes
           tags: |
             type=raw,value=latest
-            - name: Set up QEMU
-            uses: docker/setup-qemu-action@v2
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
     
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
