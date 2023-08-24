@@ -18,5 +18,5 @@ FROM base as runner
 COPY --from=build /app/dist ./dist
 COPY --from=build /app/node_modules ./node_modules
 
-CMD ["node", "dist/main.js"]
+CMD ["node", "dist/app.js"]
 
