@@ -12,7 +12,7 @@ COPY . .
 RUN yarn build
 RUN yarn install --production --frozen-lockfile
 
-# Stage 4 - Release (runs the compiled code)
+# Stage 3 - Runner (runs the compiled code)
 FROM base as runner
 
 COPY --from=build /app/dist ./dist
