@@ -12,7 +12,7 @@ COPY . .
 RUN yarn build
 
 # Stage 4 - Release (runs the compiled code)
-FROM node:20-alpine as runner
+FROM base as runner
 
 WORKDIR /app
 COPY --from=build /app/dist ./dist
