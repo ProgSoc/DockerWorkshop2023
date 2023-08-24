@@ -10,6 +10,7 @@ FROM base as build
 RUN yarn install --frozen-lockfile
 COPY . .
 RUN yarn build
+RUN yarn install --production --frozen-lockfile
 
 # Stage 4 - Release (runs the compiled code)
 FROM base as runner
@@ -17,7 +18,6 @@ FROM base as runner
 WORKDIR /app
 COPY --from=build /app/dist ./dist
 COPY --from=build /app/node_modules ./node_modules
-RUN yarn install --production --frozen-lockfile
 
 CMD ["node", "dist/main.js"]
 
